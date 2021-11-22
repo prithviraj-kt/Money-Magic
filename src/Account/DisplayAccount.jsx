@@ -7,7 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 function Account() {
   const [data, setData] = useState();
-  // const [myDate, setMyDate] = useState("");
+  const [myDate, setMyDate] = useState("");
   const [startDate, setStartDate] = useState("");
   const auth = localStorage.getItem("id");
   const history = useHistory();
@@ -15,8 +15,8 @@ function Account() {
     getAllData();
   }, []);
   useEffect(() => {
-    click();
-  },[startDate])
+    setDate();
+  }, [startDate]);
   const { id } = useParams();
   const getAllData = async () => {
     const userRef = await firebaseDb.database().ref(`Accounts/${id}`);
@@ -37,7 +37,7 @@ function Account() {
     userRef.remove();
   };
 
-  const click = (user) => {
+  const setDate = () => {
     let myDate = startDate;
     let mm = myDate.toString().slice(4, 7);
     let dd = myDate.toString().slice(8, 10);
@@ -82,43 +82,41 @@ function Account() {
         monthNum = 12;
         break;
       default:
-        // alert("Invalid data entered");
+      // alert("Invalid data entered");
     }
 
     newDate = dd + "/" + monthNum + "/" + yy;
     // alert(newDate);
+    setMyDate(newDate);
   };
 
-  const count = (user) => {
-    alert(newDate.length)
-    alert(user.date.length)
-  }
-
+  // const count = (user) => {
+  //   alert(newDate)
+  //   alert(user.date)
+  //   if(newDate == user.date){
+  //     alert("Yohho")
+  //   }
+  // }
 
   const displayAccount = (user) => {
-    // if (newDate == user.date ) {
-      return (
-        <div>
-          <div className="">
-            <div className="row">
-              <div className="col-2">{user.id}</div>
-              <div className="col-2">{user.reason}</div>
-              <div className="col-2">{user.amount}</div>
-              {/* <div className="col-2">{user.time}</div> */}
-              <div className="col-2">{user.date}</div>
-              <div className="col-2">
-                <button onClick={() => handleClick(user.id)}>
-                  Delete Data
-                </button>
-                {/* <button onClick={() => click(user)}>Click Me</button>
+    return (
+      <div>
+        <div className="">
+          <div className="row">
+            <div className="col-2">{user.id}</div>
+            <div className="col-2">{user.reason}</div>
+            <div className="col-2">{user.amount}</div>
+            {/* <div className="col-2">{user.time}</div> */}
+            <div className="col-2">{user.date}</div>
+            <div className="col-2">
+              <button onClick={() => handleClick(user.id)}>Delete Data</button>
+              {/* <button onClick={() => click(user)}>Click Me</button>
                 <button onClick={() => count(user)}>Count</button> */}
-
-              </div>
             </div>
           </div>
         </div>
-      );
-    // }
+      </div>
+    );
   };
 
   if (id == auth) {
@@ -154,7 +152,11 @@ function Account() {
             </div>
           </div>
           <div className="row">
-            {data ? data.map((user) => displayAccount(user)) : "Please wait"}
+            {data
+              ? data
+                  .filter((data) => myDate == data.date)
+                  .map((user) => displayAccount(user))
+              : "Please select a date"}
           </div>
         </div>
       </div>

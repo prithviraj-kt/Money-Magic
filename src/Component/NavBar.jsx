@@ -1,10 +1,13 @@
 import { AppBar, Toolbar, makeStyles, Typography } from "@material-ui/core";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
 import "../Assets/Css/Navbar.css";
+
+
+
 const useStyles = makeStyles({
   header: {
-    background: "#111111",
+    background: "#000000",
   },
   tabs: {
     color: "#ffffff",
@@ -13,10 +16,14 @@ const useStyles = makeStyles({
     fontSize: "20px",
   },
 });
+
+
+
 function NavBar() {
     const {id} = useParams();
-  const classes = useStyles();
   const history = useHistory();
+
+  const [nav, setnav] = useState(useStyles())
 
   const handleLoginClick = () => {
     history.push("/login");
@@ -69,11 +76,14 @@ function NavBar() {
 
   return (
     <div>
-      <AppBar className={classes.header} position="static">
+      <AppBar className={nav.header.background} position="static">
         <Toolbar className="navbarNav">
           <div>
             <Typography>Contact Book</Typography>
           </div>
+
+
+
           <div className="navbarButton">
             <button onClick={() => handleLoginClick()}>Login</button>
             <button onClick={() => handleSigninClick()}>Sign in</button>
@@ -82,7 +92,6 @@ function NavBar() {
             <button onClick={() => handleDisplayClick()}>Display transactions</button>
             <button onClick={() => handleLogoutClick()}>Log out</button>
             <button onClick={() => handleProfileClick()}>Profile</button>
-
           </div>
         </Toolbar>
       </AppBar>
