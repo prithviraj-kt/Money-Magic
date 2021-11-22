@@ -1,0 +1,18 @@
+.navbarNav{
+    background-color: #04009A;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbarButton>button{
+    border-radius: 5px;
+    margin: 5px;
+    background-color: rgb(255, 255, 255);
+    border: 0px solid black;
+    font-weight: 500;
+}
+.navbarButton>button:hover{
+    background-color: #00c0ba;
+    color: white;
+    transition: 0.2s;
+}
