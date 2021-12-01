@@ -100,19 +100,20 @@ function Account() {
 
   const displayAccount = (user) => {
     return (
+      
       <div>
         <div className="">
           <div className="row">
-            <div className="col-2">{user.id}</div>
-            <div className="col-2">{user.reason}</div>
-            <div className="col-2">{user.amount}</div>
+            {/* <div className="col-2">{user.id}</div> */}
+            <div className="col-4">{user.reason}</div>
+            <div className="col-4">{user.amount}</div>
             {/* <div className="col-2">{user.time}</div> */}
-            <div className="col-2">{user.date}</div>
-            <div className="col-2">
-              <button onClick={() => handleClick(user.id)}>Delete Data</button>
-              {/* <button onClick={() => click(user)}>Click Me</button>
+            <div className="col-4">{user.date}</div>
+            {/* <div className="col-2"> */}
+            {/* <button onClick={() => handleClick(user.id)}>Delete Data</button> */}
+            {/* <button onClick={() => click(user)}>Click Me</button>
                 <button onClick={() => count(user)}>Count</button> */}
-            </div>
+            {/* </div> */}
           </div>
         </div>
       </div>
@@ -123,31 +124,59 @@ function Account() {
     return (
       <div>
         <div className="container">
-          <div className="row">
-            <h1>Your accounts</h1>
-          </div>
-          <div className="row">
-            <DatePicker
-              selected={startDate}
-              value={startDate}
-              onChange={(date) => setStartDate(date)}
-              dateFormat="dd/MM/yyyy"
-            />
-          </div>
           <div className="row displayHeading">
-            <div className="disId1 col-2">
-              <b>ID</b>
+            <h1>Your Transactions</h1>
+            <div
+              className="alert alert-primary d-flex align-items-center displayAlert"
+              role="alert"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"
+                viewBox="0 0 16 16"
+                role="img"
+                aria-label="Warning:"
+              >
+                <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+              </svg>
+              <div>
+                NOTE: Choose the date of the day you want to view the
+                transactions
+              </div>
+              {/* <div>An example alert with an icon</div> */}
             </div>
-            <div className="disId2 col-2">
+            {/* <h3>
+            </h3> */}
+          </div>
+          <div className="row displayDate">
+            {/* <p>Choose your date</p> */}
+            {/* <div className="datePicker"> */}
+              <DatePicker
+                selected={startDate}
+                value={startDate}
+                onChange={(date) => setStartDate(date)}
+                dateFormat="dd/MM/yyyy"
+                className="displayDatePicker"
+              />
+            {/* </div> */}
+          </div>
+          <div className="row">
+            {/* <div className="disId1 col-2">
+              <b>ID</b>
+            </div> */}
+            <div className="disId2 col-4">
               <b>SPEND FOR</b>
             </div>
-            <div className="disId3 col-2">
+            <div className="disId3 col-4">
               <b>AMOUNT</b>
             </div>
             {/* <div className="disId4 col-2">
               <b>Time</b>
             </div> */}
-            <div className="disId5 col-2">
+            <div className="disId5 col-4">
               <b>Date</b>
             </div>
           </div>
