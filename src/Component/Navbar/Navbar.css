@@ -1,0 +1,29 @@
+.navbarTitle>h2{
+    color: rgb(0, 0, 190);
+    text-align: left;
+}
+.navbarTitle{
+    display:flex ;
+    align-items: center;
+    justify-content: center;
+}
+.navbarTitle>img{
+    width: 100px;
+}
+.navbarButtons{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+.navbarButtons>button{
+    margin-left: 30px;
+    border: 0px;
+    color: blue;
+    border-radius: 3px;
+    background-color: white;
+}
+.navbarButtons>button:hover{
+    background-color: blue;
+    color: white;
+    transition: .5s;
+}

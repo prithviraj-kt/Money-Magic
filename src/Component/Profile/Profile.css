@@ -1,0 +1,122 @@
+.profileProfile {
+  padding: 40px;
+  /* background-color: red; */
+}
+.profileImage {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profileImage > img {
+  width: 150px;
+}
+.profileInfo {
+  color: rgb(95, 95, 95);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* background-color: blue; */
+}
+.profileDataInfos {
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 900px;
+}
+.profileDataInfos > div {
+  margin: 10px 50px;
+}
+.profileDatas {
+  padding: 20px 0px;
+  /* background-color: red; */
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+.profileAmount {
+  padding: 10px 0px;
+  width: 150px;
+  background-color: #002e86;
+  border-radius: 5px;
+}
+.profileAll>h3{
+    font-size: 25px;
+    color: blue;
+    font-weight: 700;
+}
+.profileUsed {
+  padding: 10px 0px;
+  width: 150px;
+  background-color: #0047ff;
+  border-radius: 5px;
+}
+.profileDate {
+  padding: 10px 0px;
+  width: 150px;
+  background-color: #0094ff;
+  border-radius: 5px;
+}
+.profileSelectDate {
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+.profileDisplayDate {
+  background-color: rgb(219, 219, 219);
+  border: 0px;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+}
+.profileAllTransactions {
+  /* background-color: yellow; */
+}
+.profileAll {
+  /* background-color: pink; */
+  text-align: center;
+}
+.profileInfo>button{
+    font-weight: 700;
+    border: 0px;
+    background-color: blue;
+    color: white;
+    width: 100px;
+    border-radius: 20px;
+    height: 30px;
+}
+.profileInfo>button:hover{
+  color: blue;
+  background-color: white;
+  border: 5px solid blue;
+  transition: .5s;
+  display :flex ;
+  align-items: center;
+  text-align: center;
+}
+@media only screen and (max-width: 700px) {
+    .profileDataInfos > div {
+      margin: 30px;
+      width: 130px;
+    }
+  }
+
+@media only screen and (max-width: 575px) {
+  .profileInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .profileDataInfos > div {
+    margin: 10px;
+    width: 120px;
+  }
+}

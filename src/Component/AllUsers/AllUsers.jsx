@@ -1,9 +1,9 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import "../Assets/Css/AllUsers.css";
-import firebaseDb from "../firebase";
-
+import "./AllUsers.css";
+import firebaseDb from "../../firebase";
+import Navbar from "../Navbar/Navbar";
 import {
   Table,
   TableHead,
@@ -16,7 +16,7 @@ function AllUsers() {
   const auth = localStorage.getItem("id");
   const history = useHistory();
 
-  const {id} = useParams();
+  const { id } = useParams();
   const [users, setUsers] = useState();
 
   useEffect(() => {
@@ -66,13 +66,14 @@ function AllUsers() {
   if (auth === id) {
     return (
       <div className="allUser">
+        <Navbar />
+
         <Table>
           <TableHead>
             <TableRow>
               <TableCell>ID</TableCell>
-              <TableCell>NAME</TableCell>
-              {/* <TableCell>USN</TableCell> */}
-              <TableCell>USER NAME</TableCell>
+              <TableCell>FIRST NAME</TableCell>
+              <TableCell>LAST NAME</TableCell>
               <TableCell>EMAIL</TableCell>
             </TableRow>
           </TableHead>
@@ -82,14 +83,8 @@ function AllUsers() {
         </Table>
       </div>
     );
-  } else{
-    return(
-      <div>
-        {
-          history.push("/login")
-        }
-      </div>
-    );
+  } else {
+    return <div>{history.push("/login")}</div>;
   }
 }
 

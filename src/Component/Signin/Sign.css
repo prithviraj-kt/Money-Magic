@@ -1,0 +1,116 @@
+.Signin {
+  background-color: rgb(166, 252, 255);
+  /* height: 100vh; */
+  padding: 25px;
+}
+.signinContainer {
+  background-color: rgb(255, 255, 255);
+  height: 100%;
+}
+.signinRow {
+  height: 90%;
+  padding: 20px;
+}
+.signinLeft {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.signinLeft > img {
+  width: 400px;
+}
+.signinRight {
+  padding: 20px;
+  box-shadow: 5px 5px 10px #888888;
+  font-family: cursive;
+  /* background-color: rgb(206, 206, 255); */
+  /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+}
+.signinLogin {
+  color: blue;
+  font-weight: 800;
+}
+.signinLogin > button {
+  border: 0px;
+  background-color: white;
+  color: blue;
+  font-weight: 600;
+}
+.signinRightTitle {
+  height: 75px;
+  margin-bottom: 50px;
+  padding: 10px;
+  background-color: white;
+  color: black;
+}
+.signinRightTitle > .signinNames {
+  margin-left: 40px;
+}
+.signinRightTitle > .signinNames > h3 {
+  color: blue;
+}
+.signinRightTitle > .signinNames > p {
+  color: #888888;
+}
+.signinRightInput {
+  /* height: 50vh; */
+  margin: 10px;
+  display: flex;
+}
+.signinRightInput > input {
+  margin: 10px 10px 10px 30px;
+  width: 80%;
+  height: 30px;
+  border: 0px;
+  border-radius: 5px;
+  outline: none;
+  background-color: #e7e7e7;
+}
+.signinRightSubmit {
+  /* background-color: blue; */
+  width: 150px;
+  margin-left: 40px;
+}
+/* .signinRightSubmit>button{
+    padding: 10px 0px;
+    border: 0px;
+    background-color: blue;
+    color: white;
+    font-weight: 700;
+    border-radius: 20px;
+} */
+.signinRightSubmit > button {
+  color: white;
+  background-color: blue;
+  border-radius: 6px;
+  border: 0px;
+  height: 40px;
+}
+.signinRightSubmit>button:hover{
+  background-color: white;
+  color: blue;
+  border: 5px solid blue;
+  transition: 0.5s;
+}
+::placeholder {
+  color: rgb(194, 194, 194);
+  opacity: 1;
+}
+.signinLogin>button:hover{
+  color: rgb(1, 162, 255);
+  transition: .5s;
+}
+@media only screen and (max-width: 990px) {
+  .signinLeft {
+    display: none;
+  }
+  .signinRow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

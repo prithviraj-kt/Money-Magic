@@ -1,6 +1,8 @@
 import React, { useState, useEffect, forwardRef } from "react";
+import Navbar from "../Navbar/Navbar";
+import "./AddAmount.css";
 import { useParams, useHistory } from "react-router-dom";
-import firebaseDb from "../firebase";
+import firebaseDb from "../../firebase";
 
 const initialState = {
   amount: "",
@@ -8,7 +10,6 @@ const initialState = {
   time: "",
   date: "",
 };
-
 function AddAmount() {
   const { id } = useParams();
   const auth = localStorage.getItem("id");
@@ -19,7 +20,6 @@ function AddAmount() {
   useEffect(() => {
     getAllData();
     loadDate();
-    // loadTime();
   }, []);
 
   const getAllData = async () => {
@@ -32,17 +32,6 @@ function AddAmount() {
       }
       setUser(userList);
     });
-  };
-
-  const loadTime = async () => {
-    const d = await new Date();
-    const time = `${d.getHours()} : ${d.getMinutes()}`;
-    var dd = String(d.getDate()).padStart(2, "0");
-    var mm = String(d.getMonth() + 1).padStart(2, "0"); //January is 0!
-    var yyyy = d.getFullYear();
-    const date = dd + "/" + mm + "/" + yyyy;
-    setAmt({ ...amt, ["date"]: date });
-    setAmt({ ...amt, ["time"]: time });
   };
 
   const loadDate = async () => {
@@ -71,45 +60,46 @@ function AddAmount() {
       await userRef.set(amt);
     });
     alert("Amount added succcessfully");
-    history.push(`/display/${id}`);
+    // setAmt(initialState)
+    history.push(`/profile/${id}`);
   };
 
   if (auth == id) {
     return (
-      <div className=" container addamount">
-        <div className="row">
-          <h1>Add Amount</h1>
+      <div>
+        <Navbar />
+        <div className="Add">
+          <div className="container addContainer">
+            <div className="row addTitle">
+              <h1>Add Amount</h1>
+            </div>
+            <div className="row addInput">
+              <div className="col-md-6 addInputs">
+                <input
+                  placeholder="Ex: 100"
+                  name="amount"
+                  type="text"
+                  className="form-control loginInput"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  onChange={(e) => handleChange(e)}
+                />
+              </div>
+              <div className="col-md-6 addInputs">
+                <input
+                  placeholder="Ex: Pani Puri"
+                  name="reason"
+                  className="form-control loginInput"
+                  id="exampleInputPassword1"
+                  onChange={(e) => handleChange(e)}
+                />
+              </div>
+            </div>
+            <div className="row addButton">
+              <button onClick={(e) => handleSubmit(e)}>Submit</button>
+            </div>
+          </div>
         </div>
-        <form className="loginForm">
-          <div className="mb-3">{(e) => handleChange(e)}</div>
-          <div className="mb-3">
-            <label htmlFor="exampleInputEmail1" className="form-label">
-              <h4>Amount</h4>
-            </label>
-            <input
-              name="amount"
-              type="text"
-              className="form-control loginInput"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              onChange={(e) => handleChange(e)}
-            />
-          </div>
-          <div className="mb-3 loginPassword">
-            <label htmlFor="exampleInputPassword1" className="form-label">
-              <h5>Reason</h5>
-            </label>
-            <input
-              name="reason"
-              className="form-control loginInput"
-              id="exampleInputPassword1"
-              onChange={(e) => handleChange(e)}
-            />
-          </div>
-          <button onClick={(e) => handleSubmit(e)} className="btn btn-primary">
-            Submit
-          </button>
-        </form>
       </div>
     );
   } else {

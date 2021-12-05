@@ -1,0 +1,64 @@
+.Add {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.addContainer {
+  box-shadow: -5px 5px 10px #888888;
+  padding: 50px;
+}
+.addTitle {
+  height: 25vh;
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.addTitle > h1 {
+  font-family: cursive;
+  font-size: 60px;
+  color: blue;
+  font-weight: 700;
+}
+.addInput {
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.addInputs > input {
+  border: 0px;
+  background-color: rgb(189, 255, 255);
+}
+.addInputs {
+  margin: 20px;
+  width: 300px;
+  /* background-color: green; */
+}
+.addButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.addButton > button {
+  margin-top: 20px;
+  border: 0px;
+  height: 50px;
+  width: 280px;
+  color: white;
+  background-color: blue;
+  border-radius: 10px;
+  font-weight: 700;
+}
+.addButton>button:hover{
+  background-color: white;
+  border: 7px solid blue;
+  color: blue;
+  transition: 0.5s;
+}
+/* ::placeholder {
+  color: rgb(255, 202, 202);
+  opacity: 1;
+} */
